@@ -8,22 +8,12 @@ import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements BlindwallsApiListener {
+public class MainActivity extends AppCompatActivity {
 
-    BlindwallsApiManager apiManager;
+
     ArrayList<Mural> murals;
     RecyclerView recyclerView;
     BlindwallsAdapter blindwallsAdapter;
-
-    @Override
-    public void onMuralAvailable(Mural mural) {
-        murals.add(mural);
-        blindwallsAdapter.notifyDataSetChanged();
-    }
-
-    @Override
-    public void onMuralError(Error error) {
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +21,10 @@ public class MainActivity extends AppCompatActivity implements BlindwallsApiList
         setContentView(R.layout.activity_main);
 
         murals = new ArrayList<>();
-        apiManager = new BlindwallsApiManager(getApplicationContext(), this);
-        apiManager.getMurals();
+        Mural mural = new Mural("Dummy Author",
+                "Dummy Description",
+                "https://camo.githubusercontent.com/fe9976caf90267e2f565db30b24d2f3076bee52a/68747470733a2f2f74352e72627863646e2e636f6d2f6164613134666132356431363066333161643962656334313964656332643965");
+        murals.add(mural);
 
         recyclerView = findViewById(R.id.blindwallsRecyclerViewId);
         recyclerView.setLayoutManager(new GridLayoutManager(
