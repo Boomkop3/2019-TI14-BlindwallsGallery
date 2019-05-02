@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">BlindwallsGallery</string>
+    <string name="blindwalls_image">blindwalls_image</string>
+    <string name="blindwalls_author">blindwalls_author</string>
+    <string name="blindwalls_image_mask">blindwalls_image_mask</string>
 </resources>

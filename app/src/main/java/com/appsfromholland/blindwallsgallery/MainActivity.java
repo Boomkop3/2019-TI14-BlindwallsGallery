@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements BlindwallsApiList
 
         recyclerView = findViewById(R.id.blindwallsRecyclerViewId);
         recyclerView.setLayoutManager(new GridLayoutManager(
-                this, 4, GridLayoutManager.VERTICAL, false)
+                this, 2, GridLayoutManager.VERTICAL, false)
         );
         blindwallsAdapter = new BlindwallsAdapter(murals);
         recyclerView.setAdapter(blindwallsAdapter);
