@@ -1,8 +1,6 @@
 package com.appsfromholland.blindwallsgallery;
 
 public interface BlindwallsApiListener {
-
-    public void onMuralAvailable(Mural mural);
-    public void onMuralError(Error error);
-
+    void onMuralAvailable(Mural mural);
+    void onMuralError(Error error);
 }
