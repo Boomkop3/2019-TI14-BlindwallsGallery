@@ -8,7 +8,7 @@ import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements BlindWallsListener {
 
 
     ArrayList<Mural> murals;
@@ -19,6 +19,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        BlindWallsApiManager manager = new BlindWallsApiManager(this);
+        manager.getMurals(this);
 
         murals = new ArrayList<>();
         Mural mural = new Mural("Dummy Author",
@@ -32,5 +35,15 @@ public class MainActivity extends AppCompatActivity {
         );
         blindwallsAdapter = new BlindwallsAdapter(murals);
         recyclerView.setAdapter(blindwallsAdapter);
+    }
+
+    @Override
+    public void onMuralAvailable(Mural mural) {
+        this.murals.add(mural);
+    }
+
+    @Override
+    public void unMuralError(String errorMessage) {
+
     }
 }
